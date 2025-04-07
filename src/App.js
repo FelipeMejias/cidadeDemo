@@ -1,9 +1,11 @@
+import { CidadeCel } from "./CidadeCel";
 import { CidadePc } from "./CidadePc";
 
 
 export function App(){
   
-    return(
+    return(<>
         <CidadePc />
-    )
+        <CidadeCel />
+    </>)
 }

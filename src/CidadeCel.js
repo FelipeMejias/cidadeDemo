@@ -21,7 +21,7 @@ export function CidadeCel(){
     function executar(){
         setLoading(true)
         async function iniciar() {
-            const resultado = await criarAsync(4,8);
+            const resultado = await criarAsync(5,4);
             setListaDeListas(resultado);
             setLoading(false)
           }
@@ -79,16 +79,16 @@ export function CidadeCel(){
 const Button=styled.div`cursor:pointer;
 height:40px;width:160px;background:green;
 border-radius:50px;color:white;
-justify-content:center;
+justify-content:center;margin:20px 0 10px 0;
 align-items:center;
 `
 const Tela=styled.article`
-
+flex-direction:column;
 justify-content:space-evenly;
 align-items:center;
 background:#B5E61D;
-width:100vw;height:100dvh;
-display:flex;
+width:100vw;min-height:100dvh;
+display:flex;overflow:auto;
 @media(min-width:650px){
 display:none
 }
@@ -102,7 +102,7 @@ width:180vh;
 height:90vh;
 @media(max-width:650px){
 width:88vw;
-height:110vw
+height:110vw;
 }
 `
 
@@ -115,7 +115,7 @@ height:100%;
 input{
 background:#e2e8ce;
 border-radius:50px;height:40px;width:150px;
-border:0;padding-left:10px;margin:50px 0 20px 0;
+border:0;padding-left:10px;margin:20px 0 0px 0;
 box-sizing:border-box;
 }
 `
@@ -135,6 +135,7 @@ align-items:center;
 flex-direction:column;
 width:100%;
 height:300px;overflow:auto;
+margin:20px 0 10px 0;
 `
 const Cid=styled.div`cursor:pointer;
 height:40px;width:160px;background:#eff716;
