@@ -1,6 +1,42 @@
 import { sumario } from "./sumario"
-const linhas=6
-const colunas=10
+
+export function extrairNomes(listaDeListas){
+    const resposta=[]
+    for(let lista of listaDeListas){
+        const semiResposta=[]
+        for(let item of lista){
+            semiResposta.push(item.nome)
+        }
+        resposta.push(semiResposta)
+    }
+    
+    return resposta
+}
+export function extrairObjetos(listaDeListas){
+    try{
+        const resposta=[]
+        for(let lista of listaDeListas){
+            const semiResposta=[]
+            for(let nome of lista){
+                semiResposta.push(buscarObjeto(nome))
+            }
+            resposta.push(semiResposta)
+        }
+        return resposta
+        
+    }catch(e){
+        console.log('deu erro na extrairObjetos')
+        return false
+    }
+    
+}
+function buscarObjeto(nome){
+    for(let item of sumario){
+        if(item.nome==nome){
+            return item
+        }
+    }
+}
 function inverter(num){
     switch(num){
         case 1:return 3
@@ -10,19 +46,18 @@ function inverter(num){
     }
 }
 
-export function principal(){
+export function principal(linhas,colunas){
     try{
         const resposta=[]
         for(let k=0; k<linhas;k++){
             let linha
             if(k==0){
-                linha=criarLinha(false)
+                linha=criarLinha(false,colunas)
             }else{
-                linha=criarLinha(resposta[k-1])
+                linha=criarLinha(resposta[k-1],colunas)
             }
             resposta.push(linha)
         }
-        console.log(resposta)
         return resposta 
     }catch(e){
         console.log('deu erro na principal')
@@ -31,7 +66,7 @@ export function principal(){
 }
 
 
-function criarLinha(colunaCima){
+function criarLinha(colunaCima,colunas){
 try{
     const resposta=[]
     for(let k=0; k<colunas;k++){

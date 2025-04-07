@@ -1,9 +1,9 @@
-import { Cidade } from "./Cidade";
+import { CidadePc } from "./CidadePc";
 
 
 export function App(){
   
     return(
-        <Cidade />
+        <CidadePc />
     )
 }
